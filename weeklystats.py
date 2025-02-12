@@ -1,6 +1,7 @@
 # weeklystats
 
 import json
+import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
 ###########################################
@@ -215,7 +216,7 @@ for i in range(len(stats)):
                 )
             for keyPlayer in week[keyTeam]['player-stats'].keys():
                 dictPlayer = week[keyTeam]['player-stats'][keyPlayer]
-                dictPlayer.update({'playerId': keyPlayer})
+                dictPlayer.update({'playerId': int(keyPlayer), 'week': i+1})
                 statsPlayers = pd.concat(
                     [statsPlayers, pd.DataFrame([dictPlayer])],
                     ignore_index=True
@@ -225,16 +226,59 @@ for i in range(len(stats)):
 statsTeams = statsTeams.merge(dfTeams, how='left', on='teamId')
 # add player names & teams to df
 statsPlayers = dfRosters[
-    ['playerId', 'playerName', 'teamName', 'teamNameFull', 'position']
+    [
+        'playerId', 
+        'playerName', 
+        'teamName', 
+        'teamNameFull', 
+        'position',
+        ]
     ].merge(
         statsPlayers, 
-        left_on='playerId', 
-        right_on='rosterId'
+        on='playerId',
         )
 
+#############
+# This week #
+#############
+# get this week's team stats
+statsTeamsThisWeek = statsTeams.loc[
+    statsTeams.week == 6
+    ]
 
+# get this week's stats
+statsPlayersThisWeek = statsPlayers.loc[
+    statsPlayers.weekIndex == 6
+    ]
 
+statsPlayersThisWeek['classDefense'] = statsPlayersThisWeek.defPts.notna().astype(int)
+statsPlayersThisWeek['classReceiving'] = statsPlayersThisWeek.recYds.notna().astype(int)
+statsPlayersThisWeek['classRushing'] = statsPlayersThisWeek.rushYds.notna().astype(int)
+statsPlayersThisWeek['classPassing'] = statsPlayersThisWeek.passYds.notna().astype(int)
 
+#################
+# Write prompts #
+#################
+classes = ['defense', 'receiving', 'rushing', 'passing']
 
+for i in range(len(classes)):
+    cols = [x for x in statsPlayersThisWeek.columns if x.startswith(classes[i][0:3])]
+    cols.append('playerName')
+
+    prompt = """You are writing notes for a sports show based on the current week in the Curry Up football league. I have a table containing the names and statistics for football players for the category of %s for the current week in a league.
+Please analyze the dataframe and provide the following information in bullet points:
+    Interesting points or trends observed in the defensive statistics.
+    Top performers in the defensive category.
+Include the statistics in your response.
+Here is the dataframe:
+    """ % classes[i]
+
+    prompt = prompt + statsPlayersThisWeek.loc[
+        statsPlayersThisWeek['class' + classes[i].capitalize()] == 1
+        ][cols].to_string(index=False)
+
+    with open("/Users/kayvon/Projects/madden_stats/leaguestats/weeklystats%sWeek8.txt" % classes[i].capitalize(), "w") as file:
+        file.write(prompt)
+    file.close()
 
 
