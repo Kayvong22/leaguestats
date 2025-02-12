@@ -6,7 +6,7 @@ pd.set_option('display.max_columns', None)
 ###########################################
 # get teams ids, names & organize rosters #
 ###########################################
-with open("teams.json", "r") as file:
+with open("/Users/kayvon/Projects/madden_stats/leaguestats/teams.json", "r") as file:
     teams = json.load(file) 
 file.close()
 
@@ -193,7 +193,7 @@ dfRostersClean = dfRosters[
 ######################################
 # Collect weekly stats for each team #
 ######################################
-with open("AIShow/stats.json", "r") as file:
+with open("/Users/kayvon/Projects/madden_stats/leaguestats/stats.json", "r") as file:
     stats = json.load(file)['reg']
 file.close()
 
