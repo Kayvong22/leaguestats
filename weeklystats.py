@@ -1,13 +1,19 @@
 # weeklystats
-
+import io
 import json
+import requests
 import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
 ###########################################
 # get teams ids, names & organize rosters #
 ###########################################
-with open("/Users/kayvon/Projects/madden_stats/leaguestats/teams.json", "r") as file:
+r = requests.get("https://raw.githubusercontent.com/Kayvong22/leaguestats/refs/heads/main/teams.json")
+with open("./teams.json", "wb") as file:
+    file.write(r.content)
+file.close()
+
+with open("./teams.json", "r") as file:
     teams = json.load(file) 
 file.close()
 
@@ -195,7 +201,12 @@ del file, teams, roster, abbrName, cityName, divName, teamId, teamName, team_key
 ######################################
 # Collect weekly stats for each team #
 ######################################
-with open("/Users/kayvon/Projects/madden_stats/leaguestats/stats.json", "r") as file:
+r = requests.get("https://raw.githubusercontent.com/Kayvong22/leaguestats/refs/heads/main/stats.json")
+with open("./stats.json", "wb") as file:
+    file.write(r.content)
+file.close()
+
+with open("./stats.json", "r") as file:
     stats = json.load(file)['reg']
 file.close()
 
@@ -286,11 +297,26 @@ Include the statistics in your response.
 Here is the dataframe:
     """ % classes[i]
 
-    prompt = prompt + statsPlayersThisWeek.loc[
+    dfToAdd = statsPlayersThisWeek.loc[
         statsPlayersThisWeek['class' + classes[i].capitalize()] == 1
-        ][cols].to_string(index=False)
+        ][cols]
+    # remove zeros to save on tokens
+    if classes[i] == 'receiving':
+        dfToAdd['recCatches'] = dfToAdd.recCatches.astype(int)
+        dfToAdd['recDrops'] = dfToAdd.recDrops.astype(int)
+        dfToAdd['recLongest'] = dfToAdd.recLongest.astype(int)
+        dfToAdd['recTDs'] = dfToAdd.recTDs.astype(int)
+        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(2)
+        dfToAdd['recYds'] = dfToAdd.recYds.astype(int)
+        dfToAdd['recYdsAfterCatch'] = dfToAdd.recYdsAfterCatch.astype(int)
+        
+        dfToAdd['recCatchPct'] = dfToAdd.recCatchPct.round(2)
+        dfToAdd['recYdsPerCatch'] = dfToAdd.recYdsPerCatch.round(2)
+        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(2)
+        dfToAdd['recYdsPerGame'] = dfToAdd.recYdsPerGame.round(2)
+    prompt = prompt + dfToAdd.to_string(index=False)
 
-    with open("/Users/kayvon/Projects/madden_stats/leaguestats/weeklystats%sWeek8.txt" % classes[i].capitalize(), "w") as file:
+    with open("./weeklystats%sWeek8.txt" % classes[i].capitalize(), "w") as file:
         file.write(prompt)
     file.close()
     
