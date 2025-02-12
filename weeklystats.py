@@ -267,8 +267,8 @@ for i in range(len(classes)):
 
     prompt = """You are writing notes for a sports show based on the current week in the Curry Up football league. I have a table containing the names and statistics for football players for the category of %s for the current week in a league.
 Please analyze the dataframe and provide the following information in bullet points:
-    Interesting points or trends observed in the defensive statistics.
-    Top performers in the defensive category.
+    Interesting points or trends observed in the category's statistics.
+    Top performers in the category.
 Include the statistics in your response.
 Here is the dataframe:
     """ % classes[i]
