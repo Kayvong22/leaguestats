@@ -186,9 +186,10 @@ dfRostersClean = dfRosters[
         'college', 
         'devTrait', 
         'age', 
-
     ]
 ]
+
+del file, teams, roster, abbrName, cityName, divName, teamId, teamName, team_key, team, row, player_key, playerId, player, listPeople, listHomeStates
 
 ######################################
 # Collect weekly stats for each team #
@@ -220,7 +221,21 @@ for i in range(len(stats)):
                     )
     else:
         # this week vs all stats
-        print('do something')
+        statsTeamsThisWeek = pd.DataFrame()
+        statsPlayersThisWeek = pd.DataFrame()
+        if week is not None:
+            for keyTeam in week.keys():
+                statsTeamsThisWeek = pd.concat(
+                    [statsTeamsThisWeek, pd.DataFrame([week[keyTeam]['team-stats']])],
+                    ignore_index=True
+                    )
+                for keyPlayer in week[keyTeam]['player-stats'].keys():
+                    statsPlayersThisWeek = pd.concat(
+                        [statsPlayersThisWeek, pd.DataFrame(
+                            [week[keyTeam]['player-stats'][keyPlayer]]
+                            )],
+                        ignore_index=True
+                    )
 
 # sum all stats to get season stats vs last week stats
 
@@ -234,6 +249,19 @@ statsPlayers = dfRosters[
         left_on='playerId', 
         right_on='rosterId'
         )
+
+# add team names to df
+statsTeamsThisWeek = statsTeamsThisWeek.merge(dfTeams, how='left', on='teamId')
+# add player names & teams to df
+statsPlayersThisWeek = dfRosters[
+    ['playerId', 'playerName', 'teamName', 'teamNameFull', 'position']
+    ].merge(
+        statsPlayersThisWeek, 
+        left_on='playerId', 
+        right_on='rosterId'
+        )
+
+
 
 
 
