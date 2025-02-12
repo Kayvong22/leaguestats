@@ -1,0 +1,38 @@
+You are writing notes for a sports show based on the current week in the Curry Up football league. I have a table containing the names and statistics for football players for the category of passing for the current week in a league.
+Please analyze the dataframe and provide the following information in bullet points:
+    Interesting points or trends observed in the defensive statistics.
+    Top performers in the defensive category.
+Include the statistics in your response.
+Here is the dataframe:
+     passAtt  passComp  passCompPct  passInts  passLongest  passPts  passSacks  passTDs  passYds  passYdsPerAtt  passYdsPerGame  passerRating         playerName
+    25.0      16.0      64.0000       2.0         28.0      0.0        1.0      3.0    198.0        7.92000        175.4290          94.6     Caleb Williams
+    40.0      27.0      67.5000       1.0         48.0      0.0        0.0      4.0    364.0        9.10000        267.1430         119.1      Lamar Jackson
+    20.0      10.0      50.0000       0.0         39.0      0.0        2.0      0.0    187.0        9.35000        208.7500          82.7      J.J. McCarthy
+    44.0      29.0      65.9091       3.0         51.0      0.0        1.0      2.0    325.0        7.38636        194.2500          74.5     Baker Mayfield
+    32.0      22.0      68.7500       1.0         28.0      0.0        4.0      2.0    311.0        9.71875        258.6250         107.6        Bryce Young
+    26.0      13.0      50.0000       5.0         44.0      0.0        2.0      2.0    273.0       10.50000        286.0000          73.5     Jameis Winston
+     7.0       3.0      42.8571       1.0         69.0      0.0        1.0      2.0    145.0       20.71430        156.1670          89.8   Michael Penix Jr
+    27.0      16.0      59.2593       3.0         68.0      0.0        2.0      4.0    369.0       13.66670        285.4290         103.5             Bo Nix
+    12.0       6.0      50.0000       6.0         72.0      0.0        4.0      1.0    136.0       11.33330        186.0000          79.1       Kirk Cousins
+    22.0      17.0      77.2727       1.0         44.0      0.0        4.0      2.0    160.0        7.27273        203.1430         108.1     Tua Tagovailoa
+    52.0      29.0      55.7692       9.0         35.0      0.0        3.0      2.0    423.0        8.13461        237.8750          55.6     Russell Wilson
+    31.0      25.0      80.6452       1.0         26.0      0.0        3.0      3.0    287.0        9.25806        260.5000         124.0       Kyler Murray
+    15.0       8.0      53.3333       2.0         71.0      0.0        1.0      3.0    200.0       13.33330        244.5000          98.6        Jalen Hurts
+    22.0      15.0      68.1818       1.0         46.0      0.0        6.0      2.0    164.0        7.45455        206.5000         101.3         Derek Carr
+    42.0      24.0      57.1429       6.0         51.0      0.0        4.0      3.0    358.0        8.52381        252.8570          69.4   Matthew Stafford
+    18.0      15.0      83.3333       0.0         57.0      0.0        0.0      3.0    302.0       16.77780        161.7140         158.3         Drake Maye
+    32.0      18.0      56.2500       4.0         68.0      0.0        1.0      4.0    331.0       10.34380        266.0000          92.0         Jared Goff
+    26.0      16.0      61.5385       1.0         48.0      0.0        1.0      3.0    292.0       11.23080        426.1430         122.5    Trevor Lawrence
+     1.0       1.0     100.0000       0.0         63.0      0.0        0.0      0.0     63.0       63.00000         10.7143         118.7     Xavier Legette
+    18.0       7.0      38.8889       7.0         55.0      0.0        4.0      1.0    105.0        5.83333        204.0000          37.7        Brock Purdy
+    26.0      14.0      53.8462       3.0         80.0      0.0        1.0      4.0    307.0       11.80770        291.5710          96.1         Geno Smith
+    20.0      11.0      55.0000       2.0         45.0      0.0        2.0      2.0    140.0        7.00000        257.1430          70.8       Dak Prescott
+    22.0      15.0      68.1818       3.0         27.0      0.0        2.0      2.0    148.0        6.72727        255.7140          77.6         Joe Burrow
+    34.0      29.0      85.2941       0.0         34.0      0.0        1.0      3.0    283.0        8.32353        290.6670         130.7        C.J. Stroud
+    33.0      19.0      57.5758       2.0         74.0      0.0        2.0      3.0    338.0       10.24240        326.1250          97.7     Justin Herbert
+    28.0      23.0      82.1429       1.0         70.0      0.0        2.0      8.0    501.0       17.89290        393.0000         143.4 Anthony Richardson
+    30.0      20.0      66.6667       0.0         54.0      0.0        2.0      6.0    266.0        8.86667        205.2500         134.1         Will Levis
+    21.0      15.0      71.4286       1.0         47.0      0.0        1.0      5.0    243.0       11.57140        281.8570         129.5     Jayden Daniels
+    26.0      14.0      53.8462       2.0         70.0      0.0        2.0      5.0    339.0       13.03850        360.7140         106.5      Justin Fields
+    32.0      16.0      50.0000       5.0         86.0      0.0        0.0      2.0    317.0        9.90625        246.0000          66.2        Sam Darnold
+    30.0      15.0      50.0000       3.0         70.0      0.0        4.0      1.0    286.0        9.53333        310.5000          54.9         Josh Allen
