@@ -238,6 +238,8 @@ statsPlayers = dfRosters[
         on='playerId',
         )
 
+del file, i, stats, week, keyTeam, dictTeam, keyPlayer, dictPlayer
+
 #############
 # This week #
 #############
@@ -264,6 +266,17 @@ classes = ['defense', 'receiving', 'rushing', 'passing']
 for i in range(len(classes)):
     cols = [x for x in statsPlayersThisWeek.columns if x.startswith(classes[i][0:3])]
     cols.append('playerName')
+    # delete some fully zero columns to save on tokens
+    if classes[i] == 'defense':
+        cols.remove('defPts')
+    if classes[i] == 'receiving':
+        cols.remove('recPts')
+        cols.remove('recToPct')
+    if classes[i] == 'rushing':
+        cols.remove('rushPts')
+        cols.remove('rushToPct')
+    if classes[i] == 'passing':
+        cols.remove('passPts')
 
     prompt = """You are writing notes for a sports show based on the current week in the Curry Up football league. I have a table containing the names and statistics for football players for the category of %s for the current week in a league.
 Please analyze the dataframe and provide the following information in bullet points:
@@ -280,5 +293,5 @@ Here is the dataframe:
     with open("/Users/kayvon/Projects/madden_stats/leaguestats/weeklystats%sWeek8.txt" % classes[i].capitalize(), "w") as file:
         file.write(prompt)
     file.close()
-
-
+    
+del classes, cols, prompt, i, file
