@@ -205,39 +205,21 @@ statsPlayers = pd.DataFrame()
 
 for i in range(len(stats)):
     week = stats[i]
-    if i != (len(stats)-1):
-        if week is not None:
-            for keyTeam in week.keys():
-                statsTeams = pd.concat(
-                    [statsTeams, pd.DataFrame([week[keyTeam]['team-stats']])],
+    if week is not None:
+        for keyTeam in week.keys():
+            dictTeam = week[keyTeam]['team-stats']
+            dictTeam.update({'teamId': int(keyTeam), 'week': i+1})
+            statsTeams = pd.concat(
+                [statsTeams, pd.DataFrame([dictTeam])],
+                ignore_index=True
+                )
+            for keyPlayer in week[keyTeam]['player-stats'].keys():
+                dictPlayer = week[keyTeam]['player-stats'][keyPlayer]
+                dictPlayer.update({'playerId': keyPlayer})
+                statsPlayers = pd.concat(
+                    [statsPlayers, pd.DataFrame([dictPlayer])],
                     ignore_index=True
                     )
-                for keyPlayer in week[keyTeam]['player-stats'].keys():
-                    statsPlayers = pd.concat(
-                        [statsPlayers, pd.DataFrame(
-                            [week[keyTeam]['player-stats'][keyPlayer]]
-                            )],
-                        ignore_index=True
-                    )
-    else:
-        # this week vs all stats
-        statsTeamsThisWeek = pd.DataFrame()
-        statsPlayersThisWeek = pd.DataFrame()
-        if week is not None:
-            for keyTeam in week.keys():
-                statsTeamsThisWeek = pd.concat(
-                    [statsTeamsThisWeek, pd.DataFrame([week[keyTeam]['team-stats']])],
-                    ignore_index=True
-                    )
-                for keyPlayer in week[keyTeam]['player-stats'].keys():
-                    statsPlayersThisWeek = pd.concat(
-                        [statsPlayersThisWeek, pd.DataFrame(
-                            [week[keyTeam]['player-stats'][keyPlayer]]
-                            )],
-                        ignore_index=True
-                    )
-
-# sum all stats to get season stats vs last week stats
 
 # add team names to df
 statsTeams = statsTeams.merge(dfTeams, how='left', on='teamId')
@@ -250,16 +232,6 @@ statsPlayers = dfRosters[
         right_on='rosterId'
         )
 
-# add team names to df
-statsTeamsThisWeek = statsTeamsThisWeek.merge(dfTeams, how='left', on='teamId')
-# add player names & teams to df
-statsPlayersThisWeek = dfRosters[
-    ['playerId', 'playerName', 'teamName', 'teamNameFull', 'position']
-    ].merge(
-        statsPlayersThisWeek, 
-        left_on='playerId', 
-        right_on='rosterId'
-        )
 
 
 
