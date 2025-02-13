@@ -94,7 +94,7 @@ listPeople = [
     ['Ravens', 'Komran'],
     ['Saints', 'Arnav'],
     ['Seahawks', 'Samin'],
-    ['Steelers', 'Tyler'],
+    ['Snowhawks', 'Tyler'],
     ['Armadillos', 'Azim'],
     ['Titans', 'Zach'],
     ['Vikings', 'Sina']
