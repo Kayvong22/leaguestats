@@ -75,7 +75,7 @@ listPeople = [
     ['Buccaneers', 'Rohil'],
     ['Cardinals', 'Brett'],
     ['Chargers', 'Shawyon'],
-    ['Chiefs', 'Ben'],
+    ['Wizards', 'Ben'],
     ['Colts', 'N/A'],
     ['Commanders', 'Jaydeep'],
     ['Cowboys', 'Eddie'],
