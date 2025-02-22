@@ -263,7 +263,7 @@ statsTeamsThisWeek = statsTeams.loc[
 
 # get this week's stats
 statsPlayersThisWeek = statsPlayers.loc[
-    statsPlayers.weekIndex == statsPlayers.week.max()
+    statsPlayers.week == statsPlayers.week.max()
     ]
 
 statsPlayersThisWeek['classDefense'] = statsPlayersThisWeek.defPts.notna().astype(int)
@@ -282,12 +282,14 @@ for i in range(len(classes)):
     # delete some fully zero columns to save on tokens
     if classes[i] == 'defense':
         cols.remove('defPts')
+        cols.remove('defIntReturnYds')
     if classes[i] == 'receiving':
         cols.remove('recPts')
         cols.remove('recToPct')
     if classes[i] == 'rushing':
         cols.remove('rushPts')
         cols.remove('rushToPct')
+        cols.remove('rushYdsPerGame')
     if classes[i] == 'passing':
         cols.remove('passPts')
 
@@ -302,20 +304,42 @@ Here is the dataframe:
     dfToAdd = statsPlayersThisWeek.loc[
         statsPlayersThisWeek['class' + classes[i].capitalize()] == 1
         ][cols]
+    
+    if classes[i] == 'defense':
+        if dfToAdd.defSafeties.sum() == 0:
+            dfToAdd.drop(columns=['defSafeties'], inplace=True)
+        # Convert all columns except 'defSacks' and 'playerName' to integers to save on tokens
+        cols_to_convert = [col for col in dfToAdd.columns if col not in ['defSacks', 'playerName']]
+        dfToAdd[cols_to_convert] = dfToAdd[cols_to_convert].astype(int)
+
     # remove zeros to save on tokens
     if classes[i] == 'receiving':
         dfToAdd['recCatches'] = dfToAdd.recCatches.astype(int)
         dfToAdd['recDrops'] = dfToAdd.recDrops.astype(int)
         dfToAdd['recLongest'] = dfToAdd.recLongest.astype(int)
         dfToAdd['recTDs'] = dfToAdd.recTDs.astype(int)
-        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(2)
+        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(1)
         dfToAdd['recYds'] = dfToAdd.recYds.astype(int)
         dfToAdd['recYdsAfterCatch'] = dfToAdd.recYdsAfterCatch.astype(int)
         
-        dfToAdd['recCatchPct'] = dfToAdd.recCatchPct.round(2)
-        dfToAdd['recYdsPerCatch'] = dfToAdd.recYdsPerCatch.round(2)
-        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(2)
-        dfToAdd['recYdsPerGame'] = dfToAdd.recYdsPerGame.round(2)
+        dfToAdd['recCatchPct'] = dfToAdd.recCatchPct.round(1)
+        dfToAdd['recYdsPerCatch'] = dfToAdd.recYdsPerCatch.round(1)
+        dfToAdd['recYacPerCatch'] = dfToAdd.recYacPerCatch.round(1)
+        dfToAdd['recYdsPerGame'] = dfToAdd.recYdsPerGame.round(1)
+
+    if classes[i] == 'rushing':
+        # Convert all columns except 'rushYdsPerAtt' and 'playerName' to integers to save on tokens
+        cols_to_convert = [col for col in dfToAdd.columns if col not in ['rushYdsPerAtt', 'playerName']]
+        dfToAdd[cols_to_convert] = dfToAdd[cols_to_convert].astype(int)
+        dfToAdd['rushYdsPerAtt'] = dfToAdd.rushYdsPerAtt.round(1)
+    
+    if classes[i] == 'passing':
+        # Convert some columns to integers to save on tokens
+        cols_to_convert = [col for col in dfToAdd.columns if col not in ['passCompPct','passYdsPerAtt','passYdsPerAtt', 'playerName']]
+        dfToAdd[cols_to_convert] = dfToAdd[cols_to_convert].astype(int)
+        dfToAdd['passCompPct'] = dfToAdd.passCompPct.round(1)
+        dfToAdd['passYdsPerAtt'] = dfToAdd.passYdsPerAtt.round(1)
+        dfToAdd['passYdsPerGame'] = dfToAdd.passYdsPerGame.round(1)
     prompt = prompt + dfToAdd.to_string(index=False)
 
     with open("./weeklystats%sWeek8.txt" % classes[i].capitalize(), "w") as file:
