@@ -1,10 +1,12 @@
 # weeklystats
+
 import io
 import json
 import requests
 import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
+
 ###########################################
 # get teams ids, names & organize rosters #
 ###########################################
@@ -210,24 +212,24 @@ with open("./stats.json", "r") as file:
     stats = json.load(file)['reg']
 file.close()
 
-stats = stats[1:]
+# stats = stats[1:]
 
 statsTeams = pd.DataFrame()
 statsPlayers = pd.DataFrame()
 
-for i in range(len(stats)):
+for i in stats.keys():
     week = stats[i]
     if week is not None:
         for keyTeam in week.keys():
             dictTeam = week[keyTeam]['team-stats']
-            dictTeam.update({'teamId': int(keyTeam), 'week': i+1})
+            dictTeam.update({'teamId': int(keyTeam), 'week': int(i)})
             statsTeams = pd.concat(
                 [statsTeams, pd.DataFrame([dictTeam])],
                 ignore_index=True
                 )
             for keyPlayer in week[keyTeam]['player-stats'].keys():
                 dictPlayer = week[keyTeam]['player-stats'][keyPlayer]
-                dictPlayer.update({'playerId': int(keyPlayer), 'week': i+1})
+                dictPlayer.update({'playerId': int(keyPlayer), 'week': int(i)})
                 statsPlayers = pd.concat(
                     [statsPlayers, pd.DataFrame([dictPlayer])],
                     ignore_index=True
@@ -256,12 +258,12 @@ del file, i, stats, week, keyTeam, dictTeam, keyPlayer, dictPlayer
 #############
 # get this week's team stats
 statsTeamsThisWeek = statsTeams.loc[
-    statsTeams.week == 6
+    statsTeams.week == statsTeams.week.max()
     ]
 
 # get this week's stats
 statsPlayersThisWeek = statsPlayers.loc[
-    statsPlayers.weekIndex == 6
+    statsPlayers.weekIndex == statsPlayers.week.max()
     ]
 
 statsPlayersThisWeek['classDefense'] = statsPlayersThisWeek.defPts.notna().astype(int)
