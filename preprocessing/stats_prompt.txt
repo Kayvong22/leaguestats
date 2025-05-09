@@ -1,0 +1,228 @@
+Summarize the following information and turn it into a script to be used in a stephen a smith style nfl sports talkshow:
+
+Top 5 Quarterbacks by Passer Rating:
+      fullName                  teamNameFull  passerRating  passYds  passTDs  \
+20  C.Williams  San Francisco 49ers (Ashwin)         157.8      202        3   
+3     C.Stroud    Los Angeles Rams (Alishan)         145.6      310        3   
+1    J.Daniels   Vancouver Snowhawks (Tyler)         132.5      401        1   
+0   T.Lawrence          Detroit Lions (Will)         128.5      434        7   
+17   J.Winston    Dublin Shamrocks (Greyson)         120.4      218        5   
+
+    passInts  passCompPct  
+20         0      76.9231  
+3          0      79.3103  
+1          0      70.5882  
+0          2      82.1429  
+17         1      65.0000  
+
+Most Efficient Passers (min 20 attempts):
+        fullName                  teamNameFull  passYdsPerAtt  passYdsPerGame  \
+0     T.Lawrence          Detroit Lions (Will)        15.5000         435.294   
+8       J.Burrow  Tampa Bay Buccaneers (Rohil)        12.6522         305.765   
+5   A.Richardson    New Orleans Saints (Arnav)        12.0800         412.529   
+17     J.Winston    Dublin Shamrocks (Greyson)        10.9000         271.882   
+3       C.Stroud    Los Angeles Rams (Alishan)        10.6897         281.647   
+
+    passCompPct  
+0       82.1429  
+8       69.5652  
+5       60.0000  
+17      65.0000  
+3       79.3103  
+
+Top 5 Receivers by Yards:
+     fullName                  teamNameFull  recYds  recCatches  recTDs  \
+0  J.Williams   Vancouver Snowhawks (Tyler)     218           4       0   
+1     R.Moore    Los Angeles Rams (Alishan)     157           7       2   
+2    T.Higbee        Atlanta Falcons (Zain)     152           8       0   
+3   Q.Watkins          Detroit Lions (Will)     145           6       3   
+4   M.Andrews  San Diego Chargers (Shawyon)     144           5       1   
+
+   recYdsPerGame  
+0       198.4710  
+1        73.7059  
+2        67.7059  
+3        45.6471  
+4        73.1667  
+
+Most Reliable Receivers (min 5 catches):
+    fullName                  teamNameFull  recCatchPct  recDrops  \
+1    R.Moore    Los Angeles Rams (Alishan)        100.0         0   
+3  Q.Watkins          Detroit Lions (Will)        100.0         0   
+4  M.Andrews  San Diego Chargers (Shawyon)        100.0         0   
+5  R.Shaheed        Dallas Cowboys (David)        100.0         0   
+6   C.Austin    New Orleans Saints (Arnav)        100.0         0   
+
+   recYdsPerCatch  
+1         22.4286  
+3         24.1667  
+4         28.8000  
+5         16.3750  
+6         26.0000  
+
+Yards After Catch Leaders:
+       fullName                  teamNameFull  recYdsAfterCatch  \
+3     Q.Watkins          Detroit Lions (Will)               101   
+7      J.Oliver    Dublin Shamrocks (Greyson)                89   
+30  C.McCaffrey     Honolulu Jaguars (Kayvon)                77   
+15       C.Kmet        Miami Dolphins (Kunal)                73   
+4     M.Andrews  San Diego Chargers (Shawyon)                60   
+
+    recYacPerCatch  
+3         16.83330  
+7         22.25000  
+30        15.40000  
+15         6.63636  
+4         12.00000  
+
+Top 5 Rushers by Yards:
+       fullName                  teamNameFull  rushYds  rushAtt  rushTDs  \
+0  K.Walker III     Arizona Cardinals (Brett)      163       17        2   
+1      J.Jacobs        Miami Dolphins (Kunal)      130       22        1   
+2       J.Gibbs  San Francisco 49ers (Ashwin)      126       13        1   
+3   C.McCaffrey     Honolulu Jaguars (Kayvon)      115       19        1   
+4      D.Achane      Seattle Seahawks (Samin)      105       18        0   
+
+   rushYdsPerGame  
+0        109.9410  
+1         45.3529  
+2         83.9412  
+3        108.1180  
+4        124.3530  
+
+Most Explosive Runners (min 5 carries):
+        fullName                  teamNameFull  rushYdsPerAtt  rush20PlusYds  \
+9   T.Etienne Jr         New York Jets (Nafiz)       12.66670              1   
+2        J.Gibbs  San Francisco 49ers (Ashwin)        9.69231              1   
+0   K.Walker III     Arizona Cardinals (Brett)        9.58823              2   
+5        J.Mixon    Carolina Panthers (Vishal)        8.90909              2   
+21    M.Penix Jr     Arizona Cardinals (Brett)        8.60000              0   
+
+    rushLongest  
+9            55  
+2            43  
+0            67  
+5            25  
+21           11  
+
+Best at Breaking Tackles:
+      fullName               teamNameFull  rushBrokenTackles  \
+1     J.Jacobs     Miami Dolphins (Kunal)                  6   
+7       B.Hall    Tokyo Armadillos (Azim)                  6   
+14    B.Irving   Mexico City Bears (Regy)                  6   
+17  K.Mitchell  Baltimore Ravens (Komran)                  5   
+81    T.Higbee     Atlanta Falcons (Zain)                  5   
+
+    rushYdsAfterContact  
+1                    42  
+7                     2  
+14                    2  
+17                    5  
+81                    0  
+
+Team Passing Yards per Game:
+                             passYds  passTDs  passInts  passYdsPerGame
+teamNameFull                                                           
+Detroit Lions (Will)             434        7         2         435.294
+Vancouver Snowhawks (Tyler)      401        1         0         348.941
+Mexico City Bears (Regy)         332        2         0         318.059
+Los Angeles Rams (Alishan)       310        3         0         281.647
+Minnesota Vikings (Sina)         305        2         3         301.882
+
+Team Rushing Yards per Game:
+                              rushYds  rushTDs  rushYdsPerGame  rushFum
+teamNameFull                                                           
+Arizona Cardinals (Brett)         206        2       20.309324        2
+Miami Dolphins (Kunal)            150        1       14.941166        0
+Carolina Panthers (Vishal)        135        3       16.225500        0
+San Francisco 49ers (Ashwin)      129        2       29.684103        0
+Toronto Night Hawks (Mikey)       128        1       39.470613        0
+
+Team Total Offense Rankings:
+                             Total_Yards  Total_TDs  Pass_Yards  Rush_Yards
+teamNameFull                                                               
+Detroit Lions (Will)                 466          7         434          32
+Mexico City Bears (Regy)             427          3         332          95
+Vancouver Snowhawks (Tyler)          412          1         401          11
+Arizona Cardinals (Brett)            406          3         200         206
+Tokyo Armadillos (Azim)              388          3         272         116
+
+Top Tacklers:
+-------------
+
+Top Pass Defenders:
+-----------------
+J.Dean: 2 INTs, 3 deflections, 252 INT return yards
+C.Gonzalez: 1 INTs, 3 deflections, 32 INT return yards
+Q.Walker: 1 INTs, 2 deflections, 1 INT return yards
+S.Murphy-Bunting: 2 INTs, 1 deflections, 34 INT return yards
+B.Okereke: 1 INTs, 2 deflections, 66 INT return yards
+C.Holcomb: 1 INTs, 1 deflections, 10 INT return yards
+B.St-Juste: 1 INTs, 1 deflections, 17 INT return yards
+E.Cooper: 1 INTs, 1 deflections, 2 INT return yards
+K.White: 0 INTs, 2 deflections, 0 INT return yards
+M.Lattimore: 1 INTs, 1 deflections, 20 INT return yards
+
+Top Pass Rushers:
+----------------
+R.Gary: 3.0 sacks
+T.Tuipulotu: 3.0 sacks
+M.Crosby: 3.0 sacks
+T.Watt: 2.5 sacks
+D.Lawrence: 2.5 sacks
+D.Hall: 2.0 sacks
+A.Barno: 2.0 sacks
+J.Hines-Allen: 2.0 sacks
+J.Carter: 2.0 sacks
+J.Sweat: 2.0 sacks
+
+Defensive Playmakers:
+-------------------
+A.Terrell Jr: 0 TDs, 1 forced fumbles, 2 fumble recoveries
+D.Savage: 0 TDs, 1 forced fumbles, 2 fumble recoveries
+J.Johnson: 0 TDs, 1 forced fumbles, 2 fumble recoveries
+J.Ledbetter: 0 TDs, 2 forced fumbles, 0 fumble recoveries
+B.Okereke: 1 TDs, 0 forced fumbles, 0 fumble recoveries
+J.Sweat: 0 TDs, 1 forced fumbles, 0 fumble recoveries
+X.Woods: 0 TDs, 1 forced fumbles, 0 fumble recoveries
+A.Barno: 0 TDs, 1 forced fumbles, 0 fumble recoveries
+D.Reed Jr: 1 TDs, 0 forced fumbles, 0 fumble recoveries
+T.Hawkins III: 1 TDs, 0 forced fumbles, 0 fumble recoveries
+
+Team Defense Rankings:
+--------------------
+
+Overall Team Defense (Points Allowed):
+San Francisco 49ers (Ashwin): 0 points allowed
+Mexico City Bears (Regy): 0 points allowed
+Cincinnati Bengals (N/A): 0 points allowed
+London Monarchs (Nadeem): 0 points allowed
+Mexico City Black Knights (Saba): 0 points allowed
+
+Top 5 Teams - Interceptions:
+Tampa Bay Buccaneers (Rohil): 4
+Vancouver Snowhawks (Tyler): 4
+Detroit Lions (Will): 3
+Dublin Shamrocks (Greyson): 3
+Carolina Panthers (Vishal): 3
+
+Top 5 Teams - Sacks:
+San Francisco 49ers (Ashwin): 7
+Washington Commanders (Jaydeep): 5
+Atlanta Falcons (Zain): 4
+Dublin Shamrocks (Greyson): 4
+New Orleans Saints (Arnav): 4
+
+Top 5 Teams - Forced Fumbles:
+San Francisco 49ers (Ashwin): 2
+Miami Dolphins (Kunal): 2
+Buenos Aires Condors (Raheem): 1
+Mexico City Bears (Regy): 1
+Green Bay Packers (Aseem): 1
+
+Top 5 Teams - Safeties:
+San Francisco 49ers (Ashwin): 0
+Mexico City Bears (Regy): 0
+Cincinnati Bengals (N/A): 0
+London Monarchs (Nadeem): 0
+Mexico City Black Knights (Saba): 0
