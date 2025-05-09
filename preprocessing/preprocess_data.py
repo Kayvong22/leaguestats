@@ -291,5 +291,3 @@ for metric, label in metrics:
     top_teams = team_defense.sort_values(metric, ascending=False).head(5)
     for _, team in top_teams.iterrows():
         print(f"{team['teamNameFull']}: {int(team[metric])}")
-
-
