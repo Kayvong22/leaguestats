@@ -1,4 +1,5 @@
 import io
+import os
 import json
 import requests # type: ignore
 import numpy as np
@@ -372,3 +373,7 @@ for metric, label in metrics:
 # Save the prompt to a file
 with open("stats_prompt.txt", "w") as f:
     f.write(strPrompt)
+
+# Save dfTeams to csv
+output_path = os.path.join(os.path.dirname(__file__), 'dfTeams.csv')
+dfTeams.to_csv(output_path, index=False)
