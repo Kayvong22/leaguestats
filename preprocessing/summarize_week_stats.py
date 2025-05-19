@@ -280,7 +280,7 @@ print(output)
 
 top_tacklers = dfDefense[dfDefense['defTotalTackles'] >= 10].head(10)
 for _, player in top_tacklers.iterrows():
-    output = f"{player['fullName']}: {player['defTotalTackles']} total tackles\n"
+    output = f"{player['fullName']} ({player['teamNameFull']}): {player['defTotalTackles']} total tackles\n"
     strPrompt += output
     print(output.rstrip())
 
@@ -292,7 +292,7 @@ print(output)
 dfDefense['passDefPlays'] = dfDefense['defInts'] + dfDefense['defDeflections']
 top_pass_defenders = dfDefense[dfDefense['passDefPlays'] >= 2].sort_values('passDefPlays', ascending=False).head(10)
 for _, player in top_pass_defenders.iterrows():
-    output = f"{player['fullName']}: {player['defInts']} INTs, " \
+    output = f"{player['fullName']} ({player['teamNameFull']}): {player['defInts']} INTs, " \
              f"{player['defDeflections']} deflections, " \
              f"{player['defIntReturnYds']} INT return yards\n"
     strPrompt += output
@@ -305,7 +305,7 @@ print(output)
 
 top_rushers = dfDefense[dfDefense['defSacks'] >= 2].sort_values('defSacks', ascending=False).head(10)
 for _, player in top_rushers.iterrows():
-    output = f"{player['fullName']}: {player['defSacks']} sacks\n"
+    output = f"{player['fullName']} ({player['teamNameFull']}): {player['defSacks']} sacks\n"
     strPrompt += output
     print(output.rstrip())
 
@@ -317,7 +317,7 @@ print(output)
 dfDefense['bigPlays'] = dfDefense['defTDs'] + dfDefense['defForcedFum'] + dfDefense['defFumRec']
 top_playmakers = dfDefense[dfDefense['bigPlays'] > 0].sort_values('bigPlays', ascending=False).head(10)
 for _, player in top_playmakers.iterrows():
-    output = f"{player['fullName']}: {int(player['defTDs'])} TDs, " \
+    output = f"{player['fullName']} ({player['teamNameFull']}): {int(player['defTDs'])} TDs, " \
              f"{int(player['defForcedFum'])} forced fumbles, " \
              f"{int(player['defFumRec'])} fumble recoveries\n"
     strPrompt += output
@@ -344,16 +344,16 @@ team_defense = dfDefense.groupby('teamId').agg({
 # Merge with team names
 team_defense = team_defense.merge(dfTeams[['teamId', 'teamNameFull']], on='teamId', how='left')
 
-# Sort by various metrics and display rankings
-output = "\nOverall Team Defense (Points Allowed):\n"
-strPrompt += output
-print(output)
+# # Sort by various metrics and display rankings
+# output = "\nOverall Team Defense (Points Allowed):\n"
+# strPrompt += output
+# print(output)
 
-top_teams_points = team_defense.sort_values('defPts').head(5)  # Ascending for points (lower is better)
-for _, team in top_teams_points.iterrows():
-    output = f"{team['teamNameFull']}: {int(team['defPts'])} points allowed\n"
-    strPrompt += output
-    print(output.rstrip())
+# top_teams_points = team_defense.sort_values('defPts').head(5)  # Ascending for points (lower is better)
+# for _, team in top_teams_points.iterrows():
+#     output = f"{team['teamNameFull']}: {int(team['defPts'])} points allowed\n"
+#     strPrompt += output
+#     print(output.rstrip())
 
 metrics = [
     ('defInts', 'Interceptions'),

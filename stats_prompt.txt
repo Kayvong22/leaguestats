@@ -105,7 +105,7 @@ Top Tacklers:
 
 Top Pass Defenders:
 -----------------
-M.Fitzpatrick: 2 INTs, 1 deflections, 14 INT return yards
+M.Fitzpatrick (Baltimore Ravens (Komran)): 2 INTs, 1 deflections, 14 INT return yards
 
 Top Pass Rushers:
 ----------------
@@ -115,10 +115,6 @@ Defensive Playmakers:
 
 Team Defense Rankings:
 --------------------
-
-Overall Team Defense (Points Allowed):
-Mexico City Bears (Regy): 0 points allowed
-Baltimore Ravens (Komran): 0 points allowed
 
 Top 5 Teams - Interceptions:
 Baltimore Ravens (Komran): 3
