@@ -6,8 +6,10 @@ import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
 
+WEEK_NAME = "pre_1"
+
 # Read league teams data from JSON file
-with open("../jsonfiles/madden_export_ps5_11476781_leagueteams.json", "r") as file:
+with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_leagueteams.json", "r") as file:
     league_data = json.load(file)
     
 # Create DataFrame from teams data
@@ -70,7 +72,7 @@ dfTeams = dfTeams.merge(
 dfTeams['teamNameFull'] = dfTeams['cityName'] + ' ' + dfTeams['displayName'] + ' (' + dfTeams['personName'] + ')'
 
 # Read and process passing stats
-with open("../jsonfiles/madden_export_ps5_11476781_week_reg_18_passing.json", "r") as file:
+with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_week_" + WEEK_NAME + "_passing.json", "r") as file:
     passing_data = json.load(file)
     
 # Create DataFrame from passing stats
@@ -87,7 +89,7 @@ dfPassing[numeric_columns] = dfPassing[numeric_columns].apply(pd.to_numeric)
 dfPassing = dfPassing.sort_values('passYds', ascending=False).reset_index(drop=True)
 
 # Read and process receiving stats
-with open("../jsonfiles/madden_export_ps5_11476781_week_reg_18_receiving.json", "r") as file:
+with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_week_" + WEEK_NAME + "_receiving.json", "r") as file:
     receiving_data = json.load(file)
     
 # Create DataFrame from receiving stats
@@ -104,7 +106,7 @@ dfReceiving[numeric_columns] = dfReceiving[numeric_columns].apply(pd.to_numeric)
 dfReceiving = dfReceiving.sort_values('recYds', ascending=False).reset_index(drop=True)
 
 # Read and process rushing stats
-with open("../jsonfiles/madden_export_ps5_11476781_week_reg_18_rushing.json", "r") as file:
+with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_week_" + WEEK_NAME + "_rushing.json", "r") as file:
     rushing_data = json.load(file)
     
 # Create DataFrame from rushing stats
@@ -121,7 +123,7 @@ dfRushing[numeric_columns] = dfRushing[numeric_columns].apply(pd.to_numeric)
 dfRushing = dfRushing.sort_values('rushYds', ascending=False).reset_index(drop=True)
 
 # Read and process defensive stats
-with open("../jsonfiles/madden_export_ps5_11476781_week_reg_18_defense.json", "r") as file:
+with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_week_" + WEEK_NAME + "_defense.json", "r") as file:
     defense_data = json.load(file)
     
 # Create DataFrame from defensive stats

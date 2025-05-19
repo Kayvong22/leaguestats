@@ -1,0 +1,137 @@
+Summarize the following information and turn it into a script to be used in a stephen a smith style nfl sports talkshow:
+
+Top 5 Quarterbacks by Passer Rating:
+     fullName               teamNameFull  passerRating  passYds  passTDs  \
+1  J.Brissett   Mexico City Bears (Regy)          98.6      208        3   
+0   J.Herbert  Baltimore Ravens (Komran)          92.8      230        4   
+3   S.Hartman  Baltimore Ravens (Komran)          82.0       36        0   
+2   P.Mahomes   Mexico City Bears (Regy)          39.0       47        0   
+
+   passInts  passCompPct  
+1         2      53.3333  
+0         2      54.5455  
+3         0      60.0000  
+2         1      62.5000  
+
+Most Efficient Passers (min 20 attempts):
+    fullName               teamNameFull  passYdsPerAtt  passYdsPerGame  \
+0  J.Herbert  Baltimore Ravens (Komran)        10.4545             230   
+
+   passCompPct  
+0      54.5455  
+
+Top 5 Receivers by Yards:
+    fullName               teamNameFull  recYds  recCatches  recTDs  \
+0    J.Chase  Baltimore Ravens (Komran)     209          10       4   
+1     D.Culp   Mexico City Bears (Regy)     121           3       3   
+2   K.Warner   Mexico City Bears (Regy)      37           1       0   
+3  J.Ruckert   Mexico City Bears (Regy)      21           1       0   
+4  D.Baldwin   Mexico City Bears (Regy)      21           1       0   
+
+   recYdsPerGame  
+0            209  
+1            121  
+2             37  
+3             21  
+4             21  
+
+Most Reliable Receivers (min 5 catches):
+  fullName               teamNameFull  recCatchPct  recDrops  recYdsPerCatch
+0  J.Chase  Baltimore Ravens (Komran)          100         0            20.9
+
+Yards After Catch Leaders:
+      fullName               teamNameFull  recYdsAfterCatch  recYacPerCatch
+0      J.Chase  Baltimore Ravens (Komran)                46          4.6000
+1       D.Culp   Mexico City Bears (Regy)                43         14.3333
+4    D.Baldwin   Mexico City Bears (Regy)                16         16.0000
+10  T.McLaurin  Baltimore Ravens (Komran)                13         13.0000
+6      B.Aiyuk   Mexico City Bears (Regy)                 9          4.5000
+
+Top 5 Rushers by Yards:
+     fullName               teamNameFull  rushYds  rushAtt  rushTDs  \
+0  K.Mitchell  Baltimore Ravens (Komran)       78        2        1   
+1    B.Irving   Mexico City Bears (Regy)        9        2        0   
+2   P.Mahomes   Mexico City Bears (Regy)        1        1        0   
+3   D.Baldwin   Mexico City Bears (Regy)        0        0        0   
+4  E.Gonzalez   Mexico City Bears (Regy)        0        0        0   
+
+   rushYdsPerGame  
+0              78  
+1               9  
+2               1  
+3               0  
+4               0  
+
+Most Explosive Runners (min 5 carries):
+Empty DataFrame
+Columns: [fullName, teamNameFull, rushYdsPerAtt, rush20PlusYds, rushLongest]
+Index: []
+
+Best at Breaking Tackles:
+     fullName               teamNameFull  rushBrokenTackles  \
+0  K.Mitchell  Baltimore Ravens (Komran)                  1   
+3   D.Baldwin   Mexico City Bears (Regy)                  1   
+4  E.Gonzalez   Mexico City Bears (Regy)                  1   
+5     J.Woods  Baltimore Ravens (Komran)                  1   
+6     J.Chase  Baltimore Ravens (Komran)                  1   
+
+   rushYdsAfterContact  
+0                    8  
+3                    0  
+4                    0  
+5                    0  
+6                    0  
+
+Team Passing Yards per Game:
+                           passYds  passTDs  passInts  passYdsPerGame
+teamNameFull                                                         
+Baltimore Ravens (Komran)      266        4         2           133.0
+Mexico City Bears (Regy)       255        3         3           127.5
+
+Team Rushing Yards per Game:
+                           rushYds  rushTDs  rushYdsPerGame  rushFum
+teamNameFull                                                        
+Baltimore Ravens (Komran)       78        1            26.0        0
+Mexico City Bears (Regy)        10        0             2.5        0
+
+Team Total Offense Rankings:
+                           Total_Yards  Total_TDs  Pass_Yards  Rush_Yards
+teamNameFull                                                             
+Baltimore Ravens (Komran)          344          5         266          78
+Mexico City Bears (Regy)           265          3         255          10
+
+Top Tacklers:
+-------------
+
+Top Pass Defenders:
+-----------------
+M.Fitzpatrick: 2 INTs, 1 deflections, 14 INT return yards
+
+Top Pass Rushers:
+----------------
+
+Defensive Playmakers:
+-------------------
+
+Team Defense Rankings:
+--------------------
+
+Overall Team Defense (Points Allowed):
+Mexico City Bears (Regy): 0 points allowed
+Baltimore Ravens (Komran): 0 points allowed
+
+Top 5 Teams - Interceptions:
+Baltimore Ravens (Komran): 3
+Mexico City Bears (Regy): 2
+
+Top 5 Teams - Sacks:
+Mexico City Bears (Regy): 0
+Baltimore Ravens (Komran): 0
+
+Top 5 Teams - Forced Fumbles:
+Mexico City Bears (Regy): 0
+Baltimore Ravens (Komran): 0
+
+Top 5 Teams - Safeties:
+Mexico City Bears (Regy): 0
+Baltimore Ravens (Komran): 0
