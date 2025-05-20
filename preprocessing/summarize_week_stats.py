@@ -27,7 +27,7 @@ listPeople = [
     ['Jets', 'Nafiz'],
     # AFC North
     ['Ravens', 'Komran'],
-    ['Bengals', 'N/A'],
+    ['Mounties', 'Ben'],
     ['Night Hawks', 'Mikey'],
     ['Snowhawks', 'Tyler'],
     # AFC South
@@ -38,13 +38,13 @@ listPeople = [
     # AFC West
     ['Shamrocks', 'Greyson'],
     ['Black Knights', 'Saba'],
-    ['Wizards', 'Ben'],
+    ['Wizards', 'N/A'],
     ['Chargers', 'Shawyon'],
     # NFC East
     ['Cowboys', 'David'],
-    ['Eagles', 'Devang'],
+    ['Bisons', 'Derrick'],
     ['Commanders', 'Jaydeep'],
-    ['Giants', 'Asad'], 
+    ['Thunderbirds', 'Asad'], 
     # NFC North
     ['Bears', 'Regy'],
     ['Lions', 'Will'],
