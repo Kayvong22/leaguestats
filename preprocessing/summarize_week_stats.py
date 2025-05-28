@@ -6,7 +6,10 @@ import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
 
-WEEK_NAME = "pre_1"
+WEEK_NAME = "reg_1"
+
+# Read player database
+player_db = pd.read_csv("/Users/kayvon/Projects/leaguestats/preprocessing/player_database.csv")
 
 # Read league teams data from JSON file
 with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_11476781_leagueteams.json", "r") as file:
@@ -38,7 +41,7 @@ listPeople = [
     # AFC West
     ['Shamrocks', 'Greyson'],
     ['Black Knights', 'Saba'],
-    ['Wizards', 'N/A'],
+    ['Oilers', 'Hayden'],
     ['Chargers', 'Shawyon'],
     # NFC East
     ['Cowboys', 'David'],
@@ -78,6 +81,16 @@ with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_114767
 # Create DataFrame from passing stats
 dfPassing = pd.DataFrame(passing_data['playerPassingStatInfoList'])
 
+# Join with player database to get names
+dfPassing = dfPassing.merge(
+    player_db[['rosterId', 'firstName', 'lastName']],
+    how='left',
+    on='rosterId'
+)
+
+# Create fullName from firstName and lastName
+dfPassing['fullName'] = dfPassing['firstName'] + ' ' + dfPassing['lastName']
+
 # Convert numeric columns to appropriate types
 numeric_columns = ['passerRating', 'passYds', 'passYdsPerGame', 'passCompPct', 
                   'passYdsPerAtt', 'passComp', 'passPts', 'passLongest', 
@@ -94,6 +107,16 @@ with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_114767
     
 # Create DataFrame from receiving stats
 dfReceiving = pd.DataFrame(receiving_data['playerReceivingStatInfoList'])
+
+# Join with player database to get names
+dfReceiving = dfReceiving.merge(
+    player_db[['rosterId', 'firstName', 'lastName']],
+    how='left',
+    on='rosterId'
+)
+
+# Create fullName from firstName and lastName
+dfReceiving['fullName'] = dfReceiving['firstName'] + ' ' + dfReceiving['lastName']
 
 # Convert numeric columns to appropriate types
 numeric_columns = ['recYds', 'recYdsPerGame', 'recCatchPct', 'recYdsPerCatch',
@@ -112,6 +135,16 @@ with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_114767
 # Create DataFrame from rushing stats
 dfRushing = pd.DataFrame(rushing_data['playerRushingStatInfoList'])
 
+# Join with player database to get names
+dfRushing = dfRushing.merge(
+    player_db[['rosterId', 'firstName', 'lastName']],
+    how='left',
+    on='rosterId'
+)
+
+# Create fullName from firstName and lastName
+dfRushing['fullName'] = dfRushing['firstName'] + ' ' + dfRushing['lastName']
+
 # Convert numeric columns to appropriate types
 numeric_columns = ['rushYds', 'rushYdsPerGame', 'rushYdsPerAtt', 'rushAtt',
                   'rushTDs', 'rushLongest', 'rushYdsAfterContact', 'rushBrokenTackles',
@@ -128,6 +161,16 @@ with open("/Users/kayvon/Projects/leaguestats/jsonfiles/madden_export_ps5_114767
     
 # Create DataFrame from defensive stats
 dfDefense = pd.DataFrame(defense_data['playerDefensiveStatInfoList'])
+
+# Join with player database to get names
+dfDefense = dfDefense.merge(
+    player_db[['rosterId', 'firstName', 'lastName']],
+    how='left',
+    on='rosterId'
+)
+
+# Create fullName from firstName and lastName
+dfDefense['fullName'] = dfDefense['firstName'] + ' ' + dfDefense['lastName']
 
 # Convert numeric columns to appropriate types
 numeric_columns = ['defInts', 'defPts', 'defFumRec', 'defDeflections', 

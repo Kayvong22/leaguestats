@@ -1,133 +1,218 @@
 Summarize the following information and turn it into a script to be used in a stephen a smith style nfl sports talkshow:
 
 Top 5 Quarterbacks by Passer Rating:
-     fullName               teamNameFull  passerRating  passYds  passTDs  \
-1  J.Brissett   Mexico City Bears (Regy)          98.6      208        3   
-0   J.Herbert  Baltimore Ravens (Komran)          92.8      230        4   
-3   S.Hartman  Baltimore Ravens (Komran)          82.0       36        0   
-2   P.Mahomes   Mexico City Bears (Regy)          39.0       47        0   
+         fullName                  teamNameFull  passerRating  passYds  \
+32   Nico Collins    New Orleans Saints (Arnav)         158.3       80   
+3      Josh Allen      Minnesota Vikings (Sina)         158.3      334   
+10    Sam Darnold       Tennessee Titans (Zach)         157.8      297   
+5   J.J. McCarthy    Carolina Panthers (Vishal)         150.5      312   
+24     Joe Burrow  Tampa Bay Buccaneers (Rohil)         148.1      161   
 
-   passInts  passCompPct  
-1         2      53.3333  
-0         2      54.5455  
-3         0      60.0000  
-2         1      62.5000  
+    passTDs  passInts  passCompPct  
+32        1         0     100.0000  
+3         5         0      79.1667  
+10        5         0      91.6667  
+5         5         0      68.1818  
+24        2         0      81.2500  
 
 Most Efficient Passers (min 20 attempts):
-    fullName               teamNameFull  passYdsPerAtt  passYdsPerGame  \
-0  J.Herbert  Baltimore Ravens (Komran)        10.4545             230   
+            fullName                      teamNameFull  passYdsPerAtt  \
+1    Trevor Lawrence              Detroit Lions (Will)        16.4091   
+5      J.J. McCarthy        Carolina Panthers (Vishal)        14.1818   
+3         Josh Allen          Minnesota Vikings (Sina)        13.9167   
+8     Baker Mayfield  Mexico City Black Knights (Saba)        13.8182   
+0  Sriram Venkatesan       Vancouver Snowhawks (Tyler)        13.2424   
 
-   passCompPct  
-0      54.5455  
+   passYdsPerGame  passCompPct  
+1             361      81.8182  
+5             312      68.1818  
+3             334      79.1667  
+8             304      68.1818  
+0             437      54.5455  
 
 Top 5 Receivers by Yards:
-    fullName               teamNameFull  recYds  recCatches  recTDs  \
-0    J.Chase  Baltimore Ravens (Komran)     209          10       4   
-1     D.Culp   Mexico City Bears (Regy)     121           3       3   
-2   K.Warner   Mexico City Bears (Regy)      37           1       0   
-3  J.Ruckert   Mexico City Bears (Regy)      21           1       0   
-4  D.Baldwin   Mexico City Bears (Regy)      21           1       0   
+            fullName                 teamNameFull  recYds  recCatches  recTDs  \
+0  Chigoziem Okonkwo  Vancouver Snowhawks (Tyler)     175           4       2   
+1     Rashid Shaheed       Dallas Cowboys (David)     174           5       2   
+2      DeVonta Smith    Louisville Mounties (Ben)     149           6       0   
+3         Kyle Pitts   Carolina Panthers (Vishal)     142           5       2   
+4       Tyler Higbee       Atlanta Falcons (Zain)     134           5       1   
 
    recYdsPerGame  
-0            209  
-1            121  
-2             37  
-3             21  
-4             21  
+0            175  
+1            174  
+2            149  
+3            142  
+4            134  
 
 Most Reliable Receivers (min 5 catches):
-  fullName               teamNameFull  recCatchPct  recDrops  recYdsPerCatch
-0  J.Chase  Baltimore Ravens (Komran)          100         0            20.9
+            fullName               teamNameFull  recCatchPct  recDrops  \
+142     Jordan Mason     Atlanta Falcons (Zain)        100.0         0   
+73   Diontae Johnson    Tennessee Titans (Zach)        100.0         0   
+55   Keaton Mitchell  Baltimore Ravens (Komran)        100.0         0   
+30      Bucky Irving   Mexico City Bears (Regy)        100.0         0   
+62      Tucker Kraft    Houston Oilers (Hayden)        100.0         0   
+
+     recYdsPerCatch  
+142         2.00000  
+73          8.80000  
+55          8.66667  
+30         13.16670  
+62          9.80000  
 
 Yards After Catch Leaders:
-      fullName               teamNameFull  recYdsAfterCatch  recYacPerCatch
-0      J.Chase  Baltimore Ravens (Komran)                46          4.6000
-1       D.Culp   Mexico City Bears (Regy)                43         14.3333
-4    D.Baldwin   Mexico City Bears (Regy)                16         16.0000
-10  T.McLaurin  Baltimore Ravens (Komran)                13         13.0000
-6      B.Aiyuk   Mexico City Bears (Regy)                 9          4.5000
+             fullName                      teamNameFull  recYdsAfterCatch  \
+5          Josh Downs  Mexico City Black Knights (Saba)               103   
+0   Chigoziem Okonkwo       Vancouver Snowhawks (Tyler)                95   
+27   John Metchie III           Tennessee Titans (Zach)                84   
+3          Kyle Pitts        Carolina Panthers (Vishal)                78   
+19          Cole Kmet            Miami Dolphins (Kunal)                78   
+
+    recYacPerCatch  
+5          14.7143  
+0          23.7500  
+27         21.0000  
+3          15.6000  
+19         11.1429  
 
 Top 5 Rushers by Yards:
-     fullName               teamNameFull  rushYds  rushAtt  rushTDs  \
-0  K.Mitchell  Baltimore Ravens (Komran)       78        2        1   
-1    B.Irving   Mexico City Bears (Regy)        9        2        0   
-2   P.Mahomes   Mexico City Bears (Regy)        1        1        0   
-3   D.Baldwin   Mexico City Bears (Regy)        0        0        0   
-4  E.Gonzalez   Mexico City Bears (Regy)        0        0        0   
+              fullName                  teamNameFull  rushYds  rushAtt  \
+0          Tank Bigsby  Tampa Bay Buccaneers (Rohil)      145       21   
+1  Christian McCaffrey     Honolulu Jaguars (Kayvon)      140       16   
+2   Kenneth Walker III     Arizona Cardinals (Brett)      133       23   
+3          Chase Brown  San Diego Chargers (Shawyon)      126       10   
+4       Kyren Williams        Dallas Cowboys (David)      120        7   
 
-   rushYdsPerGame  
-0              78  
-1               9  
-2               1  
-3               0  
-4               0  
+   rushTDs  rushYdsPerGame  
+0        1             145  
+1        3             140  
+2        1             133  
+3        2             126  
+4        3             120  
 
 Most Explosive Runners (min 5 carries):
-Empty DataFrame
-Columns: [fullName, teamNameFull, rushYdsPerAtt, rush20PlusYds, rushLongest]
-Index: []
+             fullName                  teamNameFull  rushYdsPerAtt  \
+4      Kyren Williams        Dallas Cowboys (David)        17.1429   
+6   Sriram Venkatesan   Vancouver Snowhawks (Tyler)        15.1429   
+13    Trevor Lawrence          Detroit Lions (Will)        13.1667   
+3         Chase Brown  San Diego Chargers (Shawyon)        12.6000   
+16     Jayden Daniels    Austin Thunderbirds (Asad)        11.8333   
+
+    rush20PlusYds  rushLongest  
+4               1           70  
+6               2           31  
+13              0           19  
+3               3           23  
+16              1           31  
 
 Best at Breaking Tackles:
-     fullName               teamNameFull  rushBrokenTackles  \
-0  K.Mitchell  Baltimore Ravens (Komran)                  1   
-3   D.Baldwin   Mexico City Bears (Regy)                  1   
-4  E.Gonzalez   Mexico City Bears (Regy)                  1   
-5     J.Woods  Baltimore Ravens (Komran)                  1   
-6     J.Chase  Baltimore Ravens (Komran)                  1   
+                fullName                  teamNameFull  rushBrokenTackles  \
+0            Tank Bigsby  Tampa Bay Buccaneers (Rohil)                  7   
+2     Kenneth Walker III     Arizona Cardinals (Brett)                  6   
+32       Jonathan Taylor    Dublin Shamrocks (Greyson)                  5   
+15   Rhamondre Stevenson       Houston Oilers (Hayden)                  4   
+108      KaVontae Turpin      London Patriots (Feindy)                  4   
 
-   rushYdsAfterContact  
-0                    8  
-3                    0  
-4                    0  
-5                    0  
-6                    0  
+     rushYdsAfterContact  
+0                     40  
+2                     59  
+32                    10  
+15                    26  
+108                    0  
 
 Team Passing Yards per Game:
-                           passYds  passTDs  passInts  passYdsPerGame
-teamNameFull                                                         
-Baltimore Ravens (Komran)      266        4         2           133.0
-Mexico City Bears (Regy)       255        3         3           127.5
+                             passYds  passTDs  passInts  passYdsPerGame
+teamNameFull                                                           
+Vancouver Snowhawks (Tyler)      437        4         2           437.0
+Detroit Lions (Will)             361        5         1           361.0
+New Orleans Saints (Arnav)       345        4         2           172.5
+Louisville Mounties (Ben)        341        3         3           341.0
+Minnesota Vikings (Sina)         334        5         0           334.0
 
 Team Rushing Yards per Game:
-                           rushYds  rushTDs  rushYdsPerGame  rushFum
-teamNameFull                                                        
-Baltimore Ravens (Komran)       78        1            26.0        0
-Mexico City Bears (Regy)        10        0             2.5        0
+                              rushYds  rushTDs  rushYdsPerGame  rushFum
+teamNameFull                                                           
+Tampa Bay Buccaneers (Rohil)      186        2           37.20        1
+Honolulu Jaguars (Kayvon)         144        3           36.00        0
+Arizona Cardinals (Brett)         141        1           35.25        1
+Dallas Cowboys (David)            126        3           31.50        0
+San Diego Chargers (Shawyon)      126        2           63.00        0
 
 Team Total Offense Rankings:
-                           Total_Yards  Total_TDs  Pass_Yards  Rush_Yards
-teamNameFull                                                             
-Baltimore Ravens (Komran)          344          5         266          78
-Mexico City Bears (Regy)           265          3         255          10
+                             Total_Yards  Total_TDs  Pass_Yards  Rush_Yards
+teamNameFull                                                               
+Vancouver Snowhawks (Tyler)          556          6         437         119
+Minnesota Vikings (Sina)             451          6         334         117
+Detroit Lions (Will)                 445          6         361          84
+Dallas Cowboys (David)               430          5         304         126
+Louisville Mounties (Ben)            415          4         341          74
 
 Top Tacklers:
 -------------
 
 Top Pass Defenders:
 -----------------
-M.Fitzpatrick (Baltimore Ravens (Komran)): 2 INTs, 1 deflections, 14 INT return yards
+Malcolm Thomas (Vancouver Snowhawks (Tyler)): 2 INTs, 2 deflections, 69 INT return yards
+Quincy Williams (Mexico City Bears (Regy)): 2 INTs, 1 deflections, 29 INT return yards
+Kevin Byard III (London Patriots (Feindy)): 1 INTs, 2 deflections, 9 INT return yards
+Terrion Arnold (Detroit Lions (Will)): 3 INTs, 0 deflections, 140 INT return yards
+Krys Barnes (Minnesota Vikings (Sina)): 1 INTs, 2 deflections, 68 INT return yards
+Ji'Ayir Brown (Minnesota Vikings (Sina)): 1 INTs, 2 deflections, 9 INT return yards
+Nate Wiggins (London Monarchs (Nadeem)): 2 INTs, 1 deflections, 93 INT return yards
+Patrick Surtain II (Tennessee Titans (Zach)): 2 INTs, 1 deflections, 67 INT return yards
+Dionte Weatherspoon (Atlanta Falcons (Zain)): 0 INTs, 2 deflections, 0 INT return yards
+Reed Blankenship (Dublin Shamrocks (Greyson)): 1 INTs, 1 deflections, 17 INT return yards
 
 Top Pass Rushers:
 ----------------
+Maxx Crosby (Tampa Bay Buccaneers (Rohil)): 2.5 sacks
+Josh Sweat (Honolulu Jaguars (Kayvon)): 2.0 sacks
+Leo Chenal (New Orleans Saints (Arnav)): 2.0 sacks
+Christian Wilkins (Houston Oilers (Hayden)): 2.0 sacks
+Dre'Mont Jones (San Antonio Bisons (Derrick)): 2.0 sacks
+Micah Parsons (Carolina Panthers (Vishal)): 2.0 sacks
+Yetur Gross-Matos (New York Jets (Nafiz)): 2.0 sacks
 
 Defensive Playmakers:
 -------------------
+Terrion Arnold (Detroit Lions (Will)): 3 TDs, 0 forced fumbles, 0 fumble recoveries
+Haason Reddick (Houston Oilers (Hayden)): 0 TDs, 1 forced fumbles, 1 fumble recoveries
+Christian Benford (Mexico City Bears (Regy)): 1 TDs, 0 forced fumbles, 0 fumble recoveries
+Tristin McCollum (Atlanta Falcons (Zain)): 1 TDs, 0 forced fumbles, 0 fumble recoveries
+Carlton Davis III (Louisville Mounties (Ben)): 0 TDs, 0 forced fumbles, 1 fumble recoveries
+Jalen Pitre (New Orleans Saints (Arnav)): 0 TDs, 1 forced fumbles, 0 fumble recoveries
+Jayden June (Carolina Panthers (Vishal)): 0 TDs, 1 forced fumbles, 0 fumble recoveries
+Quan Martin (Tennessee Titans (Zach)): 1 TDs, 0 forced fumbles, 0 fumble recoveries
+Mekhi Blackmon (Seattle Seahawks (Samin)): 1 TDs, 0 forced fumbles, 0 fumble recoveries
+Devin Lloyd (London Monarchs (Nadeem)): 0 TDs, 1 forced fumbles, 0 fumble recoveries
 
 Team Defense Rankings:
 --------------------
 
 Top 5 Teams - Interceptions:
-Baltimore Ravens (Komran): 3
-Mexico City Bears (Regy): 2
+Mexico City Bears (Regy): 7
+San Antonio Bisons (Derrick): 6
+Tennessee Titans (Zach): 4
+Seattle Seahawks (Samin): 4
+Carolina Panthers (Vishal): 4
 
 Top 5 Teams - Sacks:
-Mexico City Bears (Regy): 0
-Baltimore Ravens (Komran): 0
+New York Jets (Nafiz): 4
+Tampa Bay Buccaneers (Rohil): 4
+Houston Oilers (Hayden): 4
+Detroit Lions (Will): 3
+London Monarchs (Nadeem): 3
 
 Top 5 Teams - Forced Fumbles:
-Mexico City Bears (Regy): 0
-Baltimore Ravens (Komran): 0
+Houston Oilers (Hayden): 2
+Mexico City Black Knights (Saba): 2
+New Orleans Saints (Arnav): 1
+Carolina Panthers (Vishal): 1
+Honolulu Jaguars (Kayvon): 1
 
 Top 5 Teams - Safeties:
+Detroit Lions (Will): 1
+San Francisco 49ers (Ashwin): 0
 Mexico City Bears (Regy): 0
-Baltimore Ravens (Komran): 0
+Tennessee Titans (Zach): 0
+Tokyo Armadillos (Azim): 0
