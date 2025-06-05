@@ -1,19 +1,34 @@
-Summarize the following information and turn it into a script to be used in a stephen a smith style nfl sports talkshow:
+Write a fun, playful, and engaging article based on the following weekly football statistics for week 2 in our football league, Curry Up,. Make it read like a sports journalist’s recap. Include jokes, light trash talk, and creative player/team nicknames. Use a tone similar to NFL.com, ESPN, and Bleacher Report. You will see player names and stats, and team names and owner names for example: Honolulu Jaguars (Kayvon) are the team Jaguars based in Honolulu and the team owner's name is Kayvon.
 
-Top 5 Quarterbacks by Passer Rating:
+Top 5 Quarterbacks by Passer Rating (min 10 attempts):
            fullName                  teamNameFull  passerRating  passYds  \
-29   Caleb Williams  San Francisco 49ers (Ashwin)         158.3       71   
 10      Bryce Young   Toronto Night Hawks (Mikey)         148.7      257   
-3        Joe Burrow  Tampa Bay Buccaneers (Rohil)         137.5      372   
 0   Trevor Lawrence          Detroit Lions (Will)         137.5      537   
+3        Joe Burrow  Tampa Bay Buccaneers (Rohil)         137.5      372   
 11      Brock Purdy     Green Bay Packers (Aseem)         135.4      256   
+5      Kyler Murray        Miami Dolphins (Kunal)         129.6      349   
 
-    passTDs  passInts  passCompPct  
-29        2         0     100.0000  
-10        3         0      75.0000  
-3         4         1      85.0000  
-0         9         1      85.0000  
-11        2         0      69.5652  
+    passTDs  passInts  passCompPct  passAtt  
+10        3         0      75.0000       24  
+0         9         1      85.0000       20  
+3         4         1      85.0000       20  
+11        2         0      69.5652       23  
+5         3         1      74.1936       31  
+
+Worst 5 Quarterbacks by Passer Rating (min 10 attempts):
+            fullName                   teamNameFull  passerRating  passYds  \
+21    Jayden Daniels     Austin Thunderbirds (Asad)           7.0      200   
+18     Lamar Jackson      Louisville Mounties (Ben)          37.9      211   
+30  Michael Penix Jr      Arizona Cardinals (Brett)          51.8       56   
+19    Tua Tagovailoa  Buenos Aires Condors (Raheem)          54.6      211   
+16       Jalen Hurts   San Antonio Bisons (Derrick)          62.4      232   
+
+    passTDs  passInts  passCompPct  passAtt  
+21        0         7      30.2326       43  
+18        0         6      50.0000       26  
+30        1         2      45.4545       11  
+19        0         3      66.6667       24  
+16        2         3      50.0000       28  
 
 Most Efficient Passers (min 10 attempts):
            fullName                  teamNameFull  passYdsPerAtt  \
@@ -30,6 +45,21 @@ Most Efficient Passers (min 10 attempts):
 17         219.000      66.6667  
 1          276.333      68.9655  
 
+Least Efficient Passers (min 10 attempts):
+            fullName                teamNameFull  passYdsPerAtt  \
+21    Jayden Daniels  Austin Thunderbirds (Asad)        4.65116   
+30  Michael Penix Jr   Arizona Cardinals (Brett)        5.09091   
+24  Matthew Stafford     Houston Oilers (Hayden)        6.34483   
+25      Dak Prescott    London Patriots (Feindy)        6.76000   
+13         Mike Vick     Tokyo Armadillos (Azim)        7.08824   
+
+    passYdsPerGame  passCompPct  
+21         189.000      30.2326  
+30          91.500      45.4545  
+24         168.500      55.1724  
+25         205.500      76.0000  
+13         281.667      58.8235  
+
 Top 5 Receivers by Yards:
            fullName                     teamNameFull  recYds  recCatches  \
 0     Xavier Worthy             Detroit Lions (Will)     215           5   
@@ -45,6 +75,21 @@ Top 5 Receivers by Yards:
 3       1        124.500  
 4       1         81.000  
 
+Worst 5 Receivers by Yards (min 3 catches):
+            fullName                   teamNameFull  recYds  recCatches  \
+148       Nick Chubb  Buenos Aires Condors (Raheem)       9           3   
+138      Chase Brown   San Diego Chargers (Shawyon)      13           3   
+130    D'Andre Swift   San Antonio Bisons (Derrick)      15           3   
+133      Evan Engram      Baltimore Ravens (Komran)      15           3   
+128  Diontae Johnson        Tennessee Titans (Zach)      16           3   
+
+     recTDs  recYdsPerGame  
+148       0        4.66667  
+138       0       34.50000  
+130       0       23.00000  
+133       0       24.00000  
+128       1       30.00000  
+
 Most Reliable Receivers (min 5 catches):
             fullName              teamNameFull  recCatchPct  recDrops  \
 0      Xavier Worthy      Detroit Lions (Will)        100.0         0   
@@ -59,6 +104,21 @@ Most Reliable Receivers (min 5 catches):
 78             7.0  
 53             9.0  
 47            12.2  
+
+Least Reliable Receivers (Most Drops):
+             fullName                 teamNameFull  recCatchPct  recDrops  \
+1          Kyle Pitts   Carolina Panthers (Vishal)      77.7778         2   
+177  Espeedy Gonzalez     Mexico City Bears (Regy)       0.0000         1   
+150     Isiah Pacheco     Minnesota Vikings (Sina)      50.0000         1   
+22        Tyreek Hill   Austin Thunderbirds (Asad)      80.0000         1   
+23        Cooper Kupp  Toronto Night Hawks (Mikey)      87.5000         1   
+
+     recYdsPerCatch  
+1           25.5714  
+177          0.0000  
+150          8.0000  
+22          23.0000  
+23          13.0000  
 
 Yards After Catch Leaders:
           fullName                     teamNameFull  recYdsAfterCatch  \
@@ -90,6 +150,21 @@ Top 5 Rushers by Yards:
 3        0          79.500  
 4        0          75.500  
 
+Worst 5 Rushers by Yards (min 5 carries):
+           fullName                  teamNameFull  rushYds  rushAtt  rushTDs  \
+47       James Cook    Austin Thunderbirds (Asad)       13        7        0   
+46  Patrick Mahomes      Mexico City Bears (Regy)       13        5        1   
+44      Chase Brown  San Diego Chargers (Shawyon)       15        7        0   
+42     Dak Prescott      London Patriots (Feindy)       17        7        0   
+40           Bo Nix  San Diego Chargers (Shawyon)       19        5        0   
+
+    rushYdsPerGame  
+47            31.0  
+46             7.0  
+44            70.5  
+42             9.5  
+40             9.5  
+
 Most Explosive Runners (min 5 carries):
             fullName                  teamNameFull  rushYdsPerAtt  \
 10    Jayden Daniels    Austin Thunderbirds (Asad)        12.8333   
@@ -105,20 +180,50 @@ Most Explosive Runners (min 5 carries):
 1               3           67  
 0               2           68  
 
-Best at Breaking Tackles:
-          fullName                     teamNameFull  rushBrokenTackles  \
-0     Jahmyr Gibbs     San Francisco 49ers (Ashwin)                  6   
-114  George Kittle  Washington Commanders (Jaydeep)                  6   
-29    J.K. Dobbins        Green Bay Packers (Aseem)                  5   
-13     Josh Jacobs           Miami Dolphins (Kunal)                  4   
-53    Jordan Mason           Atlanta Falcons (Zain)                  4   
+Least Explosive Runners (min 5 carries):
+           fullName                  teamNameFull  rushYdsPerAtt  \
+47       James Cook    Austin Thunderbirds (Asad)        1.85714   
+44      Chase Brown  San Diego Chargers (Shawyon)        2.14286   
+42     Dak Prescott      London Patriots (Feindy)        2.42857   
+46  Patrick Mahomes      Mexico City Bears (Regy)        2.60000   
+29     J.K. Dobbins     Green Bay Packers (Aseem)        2.91667   
 
-     rushYdsAfterContact  
-0                    138  
-114                    0  
-29                     4  
-13                     8  
-53                     5  
+    rush20PlusYds  rushLongest  
+47              0           13  
+44              0            6  
+42              0            6  
+46              0           10  
+29              0           10  
+
+Best at Breaking Tackles:
+           fullName                      teamNameFull  rushBrokenTackles  \
+0      Jahmyr Gibbs      San Francisco 49ers (Ashwin)                  6   
+29     J.K. Dobbins         Green Bay Packers (Aseem)                  5   
+3     Derrick Henry  Mexico City Black Knights (Saba)                  4   
+23   Bijan Robinson          London Patriots (Feindy)                  4   
+16  Keaton Mitchell         Baltimore Ravens (Komran)                  4   
+
+    rushYdsAfterContact  
+0                   138  
+29                    4  
+3                     3  
+23                    2  
+16                    3  
+
+Worst at Breaking Tackles (min 5 carries):
+          fullName                      teamNameFull  rushBrokenTackles  \
+19     Breece Hall           Tokyo Armadillos (Azim)                  0   
+30  Baker Mayfield  Mexico City Black Knights (Saba)                  0   
+31   Kendre Miller       Toronto Night Hawks (Mikey)                  0   
+33      Drake Maye         Honolulu Jaguars (Kayvon)                  0   
+34     Bryce Young       Toronto Night Hawks (Mikey)                  0   
+
+    rushYdsAfterContact  
+19                    0  
+30                    0  
+31                    0  
+33                    0  
+34                    0  
 
 Team Passing Yards per Game:
                               passYds  passTDs  passInts  passYdsPerGame
@@ -160,6 +265,19 @@ Byron Young (Mexico City Black Knights (Saba)): 6 total tackles
 Montez Sweat (New York Jets (Nafiz)): 6 total tackles
 Foyesade Oluokun (London Monarchs (Nadeem)): 6 total tackles
 
+Defenders with Most Missed Opportunities (min 3 total tackles):
+------------------------------
+T.J. Edwards (Tokyo Armadillos (Azim)): 6 catches allowed
+Jalen Ramsey (Houston Oilers (Hayden)): 5 catches allowed
+James Bradberry IV (London Patriots (Feindy)): 4 catches allowed
+Chuck Clark (San Diego Chargers (Shawyon)): 4 catches allowed
+Darrell Baker (Tokyo Armadillos (Azim)): 4 catches allowed
+Lavonte David (Green Bay Packers (Aseem)): 4 catches allowed
+Ernest Jones IV (Green Bay Packers (Aseem)): 4 catches allowed
+DaRon Bland (San Diego Chargers (Shawyon)): 4 catches allowed
+Garrison Morris (San Diego Chargers (Shawyon)): 3 catches allowed
+Terrel Bernard (Houston Oilers (Hayden)): 3 catches allowed
+
 Top Pass Defenders:
 -----------------
 Jamel Dean (Detroit Lions (Will)): 4 INTs, 1 deflections, 63 INT return yards
@@ -172,6 +290,19 @@ Terrion Arnold (Detroit Lions (Will)): 0 INTs, 2 deflections, 0 INT return yards
 Tariq Woolen (New Orleans Saints (Arnav)): 1 INTs, 1 deflections, 254 INT return yards
 Jaycee Horn (London Monarchs (Nadeem)): 1 INTs, 1 deflections, 60 INT return yards
 Isaiah Simmons (Los Angeles Rams (Alishan)): 1 INTs, 1 deflections, 63 INT return yards
+
+Struggling Pass Defenders (min 3 targets):
+--------------------------------
+T.J. Edwards (Tokyo Armadillos (Azim)): 6 catches allowed, 0 deflections
+Jalen Ramsey (Houston Oilers (Hayden)): 5 catches allowed, 0 deflections
+Chuck Clark (San Diego Chargers (Shawyon)): 4 catches allowed, 0 deflections
+Darrell Baker (Tokyo Armadillos (Azim)): 4 catches allowed, 0 deflections
+Lavonte David (Green Bay Packers (Aseem)): 4 catches allowed, 0 deflections
+DaRon Bland (San Diego Chargers (Shawyon)): 4 catches allowed, 0 deflections
+Ernest Jones IV (Green Bay Packers (Aseem)): 4 catches allowed, 0 deflections
+James Bradberry IV (London Patriots (Feindy)): 4 catches allowed, 1 deflections
+Tony Adams (Tokyo Armadillos (Azim)): 3 catches allowed, 0 deflections
+Byron Young (Mexico City Black Knights (Saba)): 3 catches allowed, 0 deflections
 
 Top Pass Rushers:
 ----------------
