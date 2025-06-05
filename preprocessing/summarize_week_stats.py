@@ -6,7 +6,9 @@ import numpy as np
 import pandas as pd
 pd.set_option('display.max_columns', None)
 
-WEEK_NAME = "reg_1"
+strInput = input("Enter the week name (e.g., 'reg_2'): ")
+
+WEEK_NAME = strInput
 
 # Read player database
 player_db = pd.read_csv("/Users/kayvon/Projects/leaguestats/preprocessing/player_database.csv")
@@ -205,11 +207,11 @@ passing_stats = dfPassing[['fullName', 'teamNameFull', 'passerRating', 'passYds'
 strPrompt += str(passing_stats) + "\n"
 print(passing_stats)
 
-output = "\nMost Efficient Passers (min 20 attempts):\n"
+output = "\nMost Efficient Passers (min 10 attempts):\n"
 strPrompt += output
 print(output)
 
-efficient_passers = dfPassing[dfPassing['passAtt'] >= 20][
+efficient_passers = dfPassing[dfPassing['passAtt'] >= 10][
     ['fullName', 'teamNameFull', 'passYdsPerAtt', 'passYdsPerGame', 'passCompPct']
 ].sort_values('passYdsPerAtt', ascending=False).head()
 strPrompt += str(efficient_passers) + "\n"
@@ -316,12 +318,12 @@ print(team_total_offense.head())
 
 print("\n=== DEFENSIVE STATISTICS ===\n")
 
-# Top tacklers (minimum 10 total tackles)
+# Top tacklers (minimum 5 total tackles)
 output = "\nTop Tacklers:\n-------------\n"
 strPrompt += output
 print(output)
 
-top_tacklers = dfDefense[dfDefense['defTotalTackles'] >= 10].head(10)
+top_tacklers = dfDefense[dfDefense['defTotalTackles'] >= 5].head(10)
 for _, player in top_tacklers.iterrows():
     output = f"{player['fullName']} ({player['teamNameFull']}): {player['defTotalTackles']} total tackles\n"
     strPrompt += output
@@ -357,12 +359,25 @@ output = "\nDefensive Playmakers:\n-------------------\n"
 strPrompt += output
 print(output)
 
-dfDefense['bigPlays'] = dfDefense['defTDs'] + dfDefense['defForcedFum'] + dfDefense['defFumRec']
+dfDefense['bigPlays'] = dfDefense['defTDs'] + dfDefense['defForcedFum'] + dfDefense['defFumRec'] + dfDefense['defSafeties'] + dfDefense['defInts']
 top_playmakers = dfDefense[dfDefense['bigPlays'] > 0].sort_values('bigPlays', ascending=False).head(10)
 for _, player in top_playmakers.iterrows():
-    output = f"{player['fullName']} ({player['teamNameFull']}): {int(player['defTDs'])} TDs, " \
-             f"{int(player['defForcedFum'])} forced fumbles, " \
-             f"{int(player['defFumRec'])} fumble recoveries\n"
+    stats = []
+    if player['defTDs'] > 0:
+        stats.append(f"{int(player['defTDs'])} defensive TDs")
+    if player['defForcedFum'] > 0:
+        stats.append(f"{int(player['defForcedFum'])} forced fumbles")
+    if player['defFumRec'] > 0:
+        stats.append(f"{int(player['defFumRec'])} fumble recoveries")
+    if player['defSafeties'] > 0:
+        stats.append(f"{int(player['defSafeties'])} safeties")
+    if player['defInts'] > 0:
+        stats.append(f"{int(player['defInts'])} interceptions")
+
+    output = f"{player['fullName']} ({player['teamNameFull']}): "
+    output += ", ".join(stats) if stats else "no defensive stats"
+    output += "\n"
+
     strPrompt += output
     print(output.rstrip())
 
@@ -387,17 +402,6 @@ team_defense = dfDefense.groupby('teamId').agg({
 # Merge with team names
 team_defense = team_defense.merge(dfTeams[['teamId', 'teamNameFull']], on='teamId', how='left')
 
-# # Sort by various metrics and display rankings
-# output = "\nOverall Team Defense (Points Allowed):\n"
-# strPrompt += output
-# print(output)
-
-# top_teams_points = team_defense.sort_values('defPts').head(5)  # Ascending for points (lower is better)
-# for _, team in top_teams_points.iterrows():
-#     output = f"{team['teamNameFull']}: {int(team['defPts'])} points allowed\n"
-#     strPrompt += output
-#     print(output.rstrip())
-
 metrics = [
     ('defInts', 'Interceptions'),
     ('defSacks', 'Sacks'),
@@ -409,7 +413,7 @@ for metric, label in metrics:
     output = f"\nTop 5 Teams - {label}:\n"
     strPrompt += output
     print(output)
-    top_teams = team_defense.sort_values(metric, ascending=False).head(5)
+    top_teams = team_defense[team_defense[metric] > 0].sort_values(metric, ascending=False).head(5)
     for _, team in top_teams.iterrows():
         output = f"{team['teamNameFull']}: {int(team[metric])}\n"
         strPrompt += output
