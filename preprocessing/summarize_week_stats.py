@@ -198,23 +198,23 @@ dfRushing = dfRushing.merge(dfTeams[['teamId', 'teamNameFull']], on='teamId', ho
 dfDefense = dfDefense.merge(dfTeams[['teamId', 'teamNameFull']], on='teamId', how='left')
 
 # Passing Analysis
-output = "\nTop 5 Quarterbacks by Passer Rating (min 10 attempts):\n"
+output = "\nTop 3 Quarterbacks by Passer Rating (min 10 attempts):\n"
 strPrompt += output
 print(output)
 
 passing_stats = dfPassing[dfPassing['passAtt'] >= 10][
     ['fullName', 'teamNameFull', 'passerRating', 'passYds', 'passTDs', 'passInts', 'passCompPct', 'passAtt']
-].sort_values('passerRating', ascending=False).head()
+].sort_values('passerRating', ascending=False).head(3)
 strPrompt += str(passing_stats) + "\n"
 print(passing_stats)
 
-output = "\nWorst 5 Quarterbacks by Passer Rating (min 10 attempts):\n"
+output = "\nWorst 3 Quarterbacks by Passer Rating (min 10 attempts):\n"
 strPrompt += output
 print(output)
 
 worst_passing_stats = dfPassing[dfPassing['passAtt'] >= 10][
     ['fullName', 'teamNameFull', 'passerRating', 'passYds', 'passTDs', 'passInts', 'passCompPct', 'passAtt']
-].sort_values('passerRating', ascending=True).head()
+].sort_values('passerRating', ascending=True).head(3)
 strPrompt += str(worst_passing_stats) + "\n"
 print(worst_passing_stats)
 
@@ -224,7 +224,7 @@ print(output)
 
 efficient_passers = dfPassing[dfPassing['passAtt'] >= 10][
     ['fullName', 'teamNameFull', 'passYdsPerAtt', 'passYdsPerGame', 'passCompPct']
-].sort_values('passYdsPerAtt', ascending=False).head()
+].sort_values('passYdsPerAtt', ascending=False).head(3)
 strPrompt += str(efficient_passers) + "\n"
 print(efficient_passers)
 
@@ -234,26 +234,26 @@ print(output)
 
 inefficient_passers = dfPassing[dfPassing['passAtt'] >= 10][
     ['fullName', 'teamNameFull', 'passYdsPerAtt', 'passYdsPerGame', 'passCompPct']
-].sort_values('passYdsPerAtt', ascending=True).head()
+].sort_values('passYdsPerAtt', ascending=True).head(3)
 strPrompt += str(inefficient_passers) + "\n"
 print(inefficient_passers)
 
 # Receiving Analysis
-output = "\nTop 5 Receivers by Yards:\n"
+output = "\nTop 3 Receivers by Yards:\n"
 strPrompt += output
 print(output)
 
 receiving_stats = dfReceiving[['fullName', 'teamNameFull', 'recYds', 'recCatches', 'recTDs', 'recYdsPerGame']] \
-    .sort_values('recYds', ascending=False).head()
+    .sort_values('recYds', ascending=False).head(3)
 strPrompt += str(receiving_stats) + "\n"
 print(receiving_stats)
 
-output = "\nWorst 5 Receivers by Yards (min 3 catches):\n"
+output = "\nWorst 3 Receivers by Yards (min 3 catches):\n"
 strPrompt += output
 print(output)
 
 worst_receiving_stats = dfReceiving[dfReceiving['recCatches'] >= 3][['fullName', 'teamNameFull', 'recYds', 'recCatches', 'recTDs', 'recYdsPerGame']] \
-    .sort_values('recYds', ascending=True).head()
+    .sort_values('recYds', ascending=True).head(3)
 strPrompt += str(worst_receiving_stats) + "\n"
 print(worst_receiving_stats)
 
@@ -263,7 +263,7 @@ print(output)
 
 reliable_receivers = dfReceiving[dfReceiving['recCatches'] >= 5][
     ['fullName', 'teamNameFull', 'recCatchPct', 'recDrops', 'recYdsPerCatch']
-].sort_values('recCatchPct', ascending=False).head()
+].sort_values('recCatchPct', ascending=False).head(3)
 strPrompt += str(reliable_receivers) + "\n"
 print(reliable_receivers)
 
@@ -273,7 +273,7 @@ print(output)
 
 unreliable_receivers = dfReceiving[
     ['fullName', 'teamNameFull', 'recCatchPct', 'recDrops', 'recYdsPerCatch']
-].sort_values('recDrops', ascending=False).head()
+].sort_values('recDrops', ascending=False).head(3)
 strPrompt += str(unreliable_receivers) + "\n"
 print(unreliable_receivers)
 
@@ -282,26 +282,26 @@ strPrompt += output
 print(output)
 
 yac_leaders = dfReceiving[['fullName', 'teamNameFull', 'recYdsAfterCatch', 'recYacPerCatch']] \
-    .sort_values('recYdsAfterCatch', ascending=False).head()
+    .sort_values('recYdsAfterCatch', ascending=False).head(3)
 strPrompt += str(yac_leaders) + "\n"
 print(yac_leaders)
 
 # Rushing Analysis
-output = "\nTop 5 Rushers by Yards:\n"
+output = "\nTop 3 Rushers by Yards:\n"
 strPrompt += output
 print(output)
 
 rushing_stats = dfRushing[['fullName', 'teamNameFull', 'rushYds', 'rushAtt', 'rushTDs', 'rushYdsPerGame']] \
-    .sort_values('rushYds', ascending=False).head()
+    .sort_values('rushYds', ascending=False).head(3)
 strPrompt += str(rushing_stats) + "\n"
 print(rushing_stats)
 
-output = "\nWorst 5 Rushers by Yards (min 5 carries):\n"
+output = "\nWorst 3 Rushers by Yards (min 5 carries):\n"
 strPrompt += output
 print(output)
 
 worst_rushing_stats = dfRushing[dfRushing['rushAtt'] >= 5][['fullName', 'teamNameFull', 'rushYds', 'rushAtt', 'rushTDs', 'rushYdsPerGame']] \
-    .sort_values('rushYds', ascending=True).head()
+    .sort_values('rushYds', ascending=True).head(3)
 strPrompt += str(worst_rushing_stats) + "\n"
 print(worst_rushing_stats)
 
@@ -311,7 +311,7 @@ print(output)
 
 explosive_runners = dfRushing[dfRushing['rushAtt'] >= 5][
     ['fullName', 'teamNameFull', 'rushYdsPerAtt', 'rush20PlusYds', 'rushLongest']
-].sort_values('rushYdsPerAtt', ascending=False).head()
+].sort_values('rushYdsPerAtt', ascending=False).head(3)
 strPrompt += str(explosive_runners) + "\n"
 print(explosive_runners)
 
@@ -321,7 +321,7 @@ print(output)
 
 ineffective_runners = dfRushing[dfRushing['rushAtt'] >= 5][
     ['fullName', 'teamNameFull', 'rushYdsPerAtt', 'rush20PlusYds', 'rushLongest']
-].sort_values('rushYdsPerAtt', ascending=True).head()
+].sort_values('rushYdsPerAtt', ascending=True).head(3)
 strPrompt += str(ineffective_runners) + "\n"
 print(ineffective_runners)
 
@@ -330,7 +330,7 @@ strPrompt += output
 print(output)
 
 tackle_breakers = dfRushing[dfRushing['rushAtt'] >= 5][['fullName', 'teamNameFull', 'rushBrokenTackles', 'rushYdsAfterContact']] \
-    .sort_values('rushBrokenTackles', ascending=False).head()
+    .sort_values('rushBrokenTackles', ascending=False).head(3)
 strPrompt += str(tackle_breakers) + "\n"
 print(tackle_breakers)
 
@@ -339,7 +339,7 @@ strPrompt += output
 print(output)
 
 worst_tackle_breakers = dfRushing[dfRushing['rushAtt'] >= 5][['fullName', 'teamNameFull', 'rushBrokenTackles', 'rushYdsAfterContact']] \
-    .sort_values(['rushBrokenTackles', 'rushYdsAfterContact'], ascending=True).head()
+    .sort_values(['rushBrokenTackles', 'rushYdsAfterContact'], ascending=True).head(3)
 strPrompt += str(worst_tackle_breakers) + "\n"
 print(worst_tackle_breakers)
 
@@ -384,10 +384,10 @@ print(output)
 strPrompt += str(team_total_offense.head()) + "\n"
 print(team_total_offense.head())
 
-print("\n=== DEFENSIVE STATISTICS ===\n")
+# print("\n=== DEFENSIVE STATISTICS ===\n")
 
 # Top tacklers
-output = "\nTop Tacklers:\n-------------\n"
+output = "\n=== DEFENSIVE STATISTICS ===\nTop Tacklers:\n"
 strPrompt += output
 print(output)
 
@@ -398,7 +398,7 @@ for _, player in top_tacklers.iterrows():
     print(output.rstrip())
 
 # Worst tacklers (most missed tackles)
-output = "\nDefenders with Most Missed Opportunities (min 3 total tackles):\n------------------------------\n"
+output = "\nDefenders with Most Missed Opportunities (min 3 total tackles):\n"
 strPrompt += output
 print(output)
 
@@ -409,7 +409,7 @@ for _, player in worst_tacklers.iterrows():
     print(output.rstrip())
 
 # Top pass defenders
-output = "\nTop Pass Defenders:\n-----------------\n"
+output = "\nTop Pass Defenders:\n"
 strPrompt += output
 print(output)
 
@@ -423,7 +423,7 @@ for _, player in top_pass_defenders.iterrows():
     print(output.rstrip())
 
 # Struggling pass defenders
-output = "\nStruggling Pass Defenders (min 3 targets):\n--------------------------------\n"
+output = "\nStruggling Pass Defenders (min 3 targets):\n"
 strPrompt += output
 print(output)
 
@@ -435,7 +435,7 @@ for _, player in struggling_defenders.iterrows():
     print(output.rstrip())
 
 # Top pass rushers
-output = "\nTop Pass Rushers:\n----------------\n"
+output = "\nTop Pass Rushers:\n"
 strPrompt += output
 print(output)
 
@@ -446,7 +446,7 @@ for _, player in top_rushers.iterrows():
     print(output.rstrip())
 
 # Defensive Playmakers
-output = "\nDefensive Playmakers:\n-------------------\n"
+output = "\nDefensive Playmakers:\n"
 strPrompt += output
 print(output)
 
@@ -473,7 +473,7 @@ for _, player in top_playmakers.iterrows():
     print(output.rstrip())
 
 # Calculate team defensive stats
-output = "\nTeam Defense Rankings:\n--------------------\n"
+output = "\nTeam Defense Rankings:\n"
 strPrompt += output
 print(output)
 team_defense = dfDefense.groupby('teamId').agg({
